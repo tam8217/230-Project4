@@ -22,4 +22,45 @@ button
 {
     border: 1px solid white;
     border-radius: 2px;
+    width: 100px;
+    height: 50px;
+    font-size: 1.2em;
+}
+
+button a
+{
+    text-decoration: none;
+}
+
+button a:visited
+{
+    color: black;
+}
+
+/***/
+/*SIDEBAR*/
+/***/
+span
+{
+    margin: 25px;   
+}
+.horizontalLine
+{
+    margin: 25px 0;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(black), to(black), color-stop(50%, white));
+    width: 500px;
+}
+
+.vertBar
+{
+    border: 1px solid rgb(156, 156, 156);
+    height: 300px;
+    width: 90%;
+    background: #fff;	
+    background: linear-gradient(180deg, transparent, #353535, transparent);
+    background-position: 50%;
+    background-repeat: repeat-y;
+    background-size: 1px auto;
 }
