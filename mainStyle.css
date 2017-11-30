@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+/***/
+/*BODY*/
+/***/
+body
+{
+    background-color: rgb(78, 75, 75);
+}
+
+#title
+{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 3em;
+    margin: 0 auto;
+}
+
+/***/
+/*BUTTONS*/
+/***/
+button
+{
+    border: 1px solid white;
+    border-radius: 2px;
+}
