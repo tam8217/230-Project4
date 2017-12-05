@@ -25,6 +25,8 @@ button
     width: 100px;
     height: 50px;
     font-size: 1.2em;
+    margin-bottom: 10px;
+    
 }
 
 button a
@@ -40,27 +42,107 @@ button a:visited
 /***/
 /*SIDEBAR*/
 /***/
-span
-{
-    margin: 25px;   
-}
 .horizontalLine
 {
     margin: 25px 0;
-    height: 1px;
+    height: 2px;
     background: black;
-    background: -webkit-gradient(linear, 0 0, 100% 0, from(black), to(black), color-stop(50%, white));
-    width: 500px;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, white));
 }
 
 .vertBar
 {
-    border: 1px solid rgb(156, 156, 156);
-    height: 300px;
-    width: 90%;
+    height: 75vh;
+    width: 2px;
     background: #fff;	
-    background: linear-gradient(180deg, transparent, #353535, transparent);
-    background-position: 50%;
-    background-repeat: repeat-y;
-    background-size: 1px auto;
+    background: linear-gradient(180deg, transparent, white, transparent);
+    background-size: 1px 75vh;
+}
+
+.sideText
+{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.sideText button
+{
+    display: block;
+    margin: 10px auto;
+}
+/***/
+/*PHASE ONE*/
+/***/
+.creationPage
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonSelectors
+{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.sidebar
+{
+    order: -1;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    min-width: 200px;
+}
+
+.sidebar h2
+{
+    text-align: center;
+    font-size: 2em;
+    padding-right: 10px;
+}
+
+.square
+{
+    
+}
+
+.circle
+{
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.small
+{
+    width: 100px;
+    height: 100px;
+}
+.large
+{
+    width: 300px;
+    height: 300px;
+}
+
+.red
+{
+    background-color: red;
+}
+
+.blue
+{
+    background-color: blue;
+}
+
+.full
+{
+    opacity: 100;
+}
+
+.partial
+{
+    opacity: 50;
 }

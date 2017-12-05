@@ -4,21 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="anime.min.js"></script>
     <link rel="stylesheet" href="mainStyle.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>This is phase 1</h1>
-
-    <div class="sidebar">
-        <div class="sideText">
-            <h2 class="sideTitle">Animation Station</h2>
-            <div class="horizontalLine"></div>
-            <button id="p1But"><a href="phase1.html">Phase 1</a></button>
-            <button id="p2But"><a href="phase2.html">Phase 2</a></button>
-            <button id="p3But"><a href="phase3.html">Phase 3</a></button>
+    <div class="creationPage">
+        <div class="sidebar">
+            <div class="sideText">
+                <h2 class="sideTitle">Animation Station</h2>
+                <div class="horizontalLine"></div>
+                    <button id="p1But"><a href="#">Phase 1</a></button>
+                    <button id="p2But"><a href="phase2.html">Phase 2</a></button>
+                    <button id="p3But"><a href="phase3.html">Phase 3</a></button>
+            </div>
+            <div class="vertBar"></div>
         </div>
+        <div class="buttonSelectors">
+            <span class="shapeSelector">
+                <p><input type="radio" name="shapes" id="shapes" value="circle">Circle</p>
+                <p><input type="radio" name="shapes" id="shapes" value="square" checked>Square</p>
+            </span>
+
+            <span class="sizeSelector">
+                <p><input type="radio" name="sizes" id="sizes" value="small" checked>Small</p>
+                <p><input type="radio" name="sizes" id="sizes" value="large">Large</p>
+            </span>
+
+            <span class="colorSelector">
+                <p><input type="radio" name="colors" id="colors" value="red" checked>Red</p>
+                <p><input type="radio" name="colors" id="colors" value="blue">Blue</p>
+            </span>
+
+            <span class="opacSelector">
+                <p><input type="radio" name="opacity" id="opacity" value="full" checked>Full</p>
+                <p><input type="radio" name="opacity" id="opacity" value="partial">Partial</p>
+            </span>
+        </div>
+        <div class="controlButtons">
+            <button class="menuMove">Move Menus</button>
+        </div>
+        <div class="shape square small red full"></div>
     </div>
 
+
+    <script>
+        /*var selector = anime({
+            targets: '.square',
+            translateX: 250
+        });
+        */
+
+        let radShape = document.querySelectorAll("#shapes");
+        let shape = document.querySelector(".shape");
+        let radSize = document.querySelectorAll("#sizes");
+        let radCol = document.querySelectorAll("#colors");
+        let radOpac = document.querySelectorAll("#opacity");
+        
+
+        for(let i = 0; i < radShape.length; i++)
+        {
+            radShape[i].onchange = function (e)
+            {
+                
+                console.log(e.target.value);
+                if(shape.classList.contains('square'))
+                {
+                    shape.classList.remove('square');
+                }
+                if(shape.classList.contains('circle'))
+                {
+                    shape.classList.remove('circle');
+                }
+                /*
+                if(e.target.value = 'circle')
+                {
+                    if(shape.classList.contains('square'))
+                    {
+                        shape.classList.remove('square');
+                    }
+                }
+                
+                if(e.target.value = 'square')
+                {
+                    if(shape.classList.contains('circle'))
+                    {
+                        shape.classList.remove('circle');
+                    }
+                }
+                */
+                
+                shape.classList.add(e.target.value);
+            }
+        }
+
+        for(let i = 0; i < radSize.length; i++)
+        {
+            radSize[i].onchange = function (e)
+            {
+                if(shape.classList.contains('small'))
+                {
+                    shape.classList.remove('small');
+                }
+                if(shape.classList.contains('large'))
+                {
+                    shape.classList.remove('large');
+                }
+
+                shape.classList.add(e.target.value);
+            }
+        }
+        for(let i = 0; i < radCol.length; i++)
+        {
+            radCol[i].onchange = function (e)
+            {
+                if(shape.classList.contains('red'))
+                {
+                    shape.classList.remove('red');
+                }
+                if(shape.classList.contains('blue'))
+                {
+                    shape.classList.remove('blue');
+                }
+
+                shape.classList.add(e.target.value);
+            }
+        }
+        for(let i = 0; i < radOpac.length; i++)
+        {
+            radOpac[i].onchange = function (e)
+            {
+                if(shape.classList.contains('full'))
+                {
+                    shape.classList.remove('full');
+                }
+                if(shape.classList.contains('partial'))
+                {
+                    shape.classList.remove('partial');
+                }
+
+                shape.classList.add(e.target.value);
+            }
+        }
+
+
+        var timeline = anime.timeline({
+            autoplay: false,
+            easing: 'easeOutExpo'
+        });
+
+        timeline
+        .add({
+            targets: ".buttonSelectors .opacSelector",
+            translateY: -25
+        })
+        .add({
+            targets: ".buttonSelectors .opacSelector",
+            translateY: 500
+        })
+        .add({
+            targets: ".buttonSelectors .colorSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .colorSelector",
+            translateY: 600
+        })
+        .add({
+            targets: ".buttonSelectors .sizeSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .sizeSelector",
+            translateY: 700
+        })
+        .add({
+            targets: ".buttonSelectors .shapeSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .shapeSelector",
+            translateY: 800
+        })
+        timeline.play();
+        timeline.reverse();
+        document.querySelector(".menuMove").onclick = function () {timeline.reverse(); timeline.play();}
+    </script>
 </body>
 </html>
