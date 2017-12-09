@@ -85,6 +85,12 @@ button a:visited
     display: flex;
     flex-direction: column;
     margin-right: 100px;
+    color: white;
+}
+
+.controlButtons
+{
+    margin-right: 30px;
 }
 
 .sidebar
@@ -139,10 +145,10 @@ button a:visited
 
 .full
 {
-    opacity: 100;
+    opacity: 1;
 }
 
 .partial
 {
-    opacity: 50;
+    opacity: .5;
 }

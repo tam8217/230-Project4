@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="mainStyle.css">
     <title>Document</title>
 </head>
@@ -22,27 +24,28 @@
         </div>
         <div class="buttonSelectors">
             <span class="shapeSelector">
-                <p><input type="radio" name="shapes" id="shapes" value="circle">Circle</p>
-                <p><input type="radio" name="shapes" id="shapes" value="square" checked>Square</p>
+                <p><input type="radio" name="shapes" class="shapes" id="circ"value="circle">Circle</p>
+                <p><input type="radio" name="shapes" class="shapes" if="squr"value="square" checked>Square</p>
             </span>
 
             <span class="sizeSelector">
-                <p><input type="radio" name="sizes" id="sizes" value="small" checked>Small</p>
-                <p><input type="radio" name="sizes" id="sizes" value="large">Large</p>
+                <p><input type="radio" name="sizes" class="sizes" id="small" value="small" checked>Small</p>
+                <p><input type="radio" name="sizes" class="sizes" id="large" value="large">Large</p>
             </span>
 
             <span class="colorSelector">
-                <p><input type="radio" name="colors" id="colors" value="red" checked>Red</p>
-                <p><input type="radio" name="colors" id="colors" value="blue">Blue</p>
+                <p><input type="radio" name="colors" class="colors" id="red" value="red" checked>Red</p>
+                <p><input type="radio" name="colors" class="colors" id="blue" value="blue">Blue</p>
             </span>
 
             <span class="opacSelector">
-                <p><input type="radio" name="opacity" id="opacity" value="full" checked>Full</p>
-                <p><input type="radio" name="opacity" id="opacity" value="partial">Partial</p>
+                <p><input type="radio" name="opacity" class="opacity" id="full" value="full" checked>Full</p>
+                <p><input type="radio" name="opacity" class="opacity" id="part" value="partial">Partial</p>
             </span>
         </div>
         <div class="controlButtons">
             <button class="menuMove">Move Menus</button>
+            <button class="revMove">Reverse Menus</button>
         </div>
         <div class="shape square small red full"></div>
     </div>
@@ -55,104 +58,146 @@
         });
         */
 
-        let radShape = document.querySelectorAll("#shapes");
+        //Getting attributes from the document
+        let radShape = document.querySelectorAll(".shapes");
         let shape = document.querySelector(".shape");
-        let radSize = document.querySelectorAll("#sizes");
-        let radCol = document.querySelectorAll("#colors");
-        let radOpac = document.querySelectorAll("#opacity");
-        
+        let radSize = document.querySelectorAll(".sizes");
+        let radCol = document.querySelectorAll(".colors");
+        let radOpac = document.querySelectorAll(".opacity");
 
+        //Getting a locally stored object if it exists, will be null if none has been created
+        const storedClassList = localStorage.getItem("classList");
+        
+        //If the classlist was modified from the default values, load them in
+        if(storedClassList.includes('circle'))
+        {
+            //Check the new value
+            document.querySelector("#circ").checked = true;
+
+            //Switch the previous value to the new one
+            $(".square").switchClass("square", "circle", 1000);
+        }
+
+        //Checking color
+        if(storedClassList.includes('blue'))
+        {
+            document.querySelector("#blue").checked = true;
+            $(".red").switchClass("red", "blue", 1000);
+        }
+
+        //Checking size
+        if(storedClassList.includes('large'))
+        {
+            document.querySelector("#large").checked = true;
+            $(".small").switchClass("small", "large", 1000);
+        }
+
+        //Checking opacity
+        if(storedClassList.includes('partial'))
+        {
+            document.querySelector("#part").checked = true;
+            $(".full").switchClass("full", "partial", 1000);
+        }
+
+        //Looping through all the radio buttons and adding listeners for when their value is changed
         for(let i = 0; i < radShape.length; i++)
         {
             radShape[i].onchange = function (e)
             {
-                
-                console.log(e.target.value);
+                //Checking the current value of the button, changing it to the selected value
                 if(shape.classList.contains('square'))
                 {
-                    shape.classList.remove('square');
+                    //shape.classList.remove('square');
+                    $(".shape").switchClass("square", e.target.value, 1000);
                 }
-                if(shape.classList.contains('circle'))
+                else if(shape.classList.contains('circle'))
                 {
-                    shape.classList.remove('circle');
+                    //shape.classList.remove('circle');
+                    $(".shape").switchClass("circle", e.target.value, 1000);
                 }
-                /*
-                if(e.target.value = 'circle')
-                {
-                    if(shape.classList.contains('square'))
-                    {
-                        shape.classList.remove('square');
-                    }
-                }
+                //shape.classList.add(e.target.value);
                 
-                if(e.target.value = 'square')
-                {
-                    if(shape.classList.contains('circle'))
-                    {
-                        shape.classList.remove('circle');
-                    }
-                }
-                */
-                
-                shape.classList.add(e.target.value);
+                //Setting the new classlist to the stored one, so it can be called later
+                localStorage.setItem("classList", shape.classList);
             }
         }
 
+        //Adding functionality to the size buttons
         for(let i = 0; i < radSize.length; i++)
         {
             radSize[i].onchange = function (e)
             {
                 if(shape.classList.contains('small'))
                 {
-                    shape.classList.remove('small');
+                    //shape.classList.remove('small');
+                    $(".small").switchClass("small", e.target.value, 1000);
                 }
-                if(shape.classList.contains('large'))
+                else if(shape.classList.contains('large'))
                 {
-                    shape.classList.remove('large');
+                    //shape.classList.remove('large');
+                    $(".large").switchClass("large", e.target.value, 1000);
                 }
 
-                shape.classList.add(e.target.value);
+                //shape.classList.add(e.target.value);
+                
+                localStorage.setItem("classList", shape.classList);
             }
         }
+
+        //Adding functionality to the color buttons
         for(let i = 0; i < radCol.length; i++)
         {
             radCol[i].onchange = function (e)
             {
                 if(shape.classList.contains('red'))
                 {
-                    shape.classList.remove('red');
+                    //shape.classList.remove('red');
+                    $(".red").switchClass("red", e.target.value, 1000);
                 }
-                if(shape.classList.contains('blue'))
+                else if(shape.classList.contains('blue'))
                 {
-                    shape.classList.remove('blue');
+                    //shape.classList.remove('blue');
+                    $(".blue").switchClass("blue", e.target.value, 1000);
                 }
 
-                shape.classList.add(e.target.value);
+                //shape.classList.add(e.target.value);
+                
+                localStorage.setItem("classList", shape.classList);
             }
         }
+
+        //Adding functionality to the opacity buttons
         for(let i = 0; i < radOpac.length; i++)
         {
             radOpac[i].onchange = function (e)
             {
                 if(shape.classList.contains('full'))
                 {
-                    shape.classList.remove('full');
+                    //shape.classList.remove('full');
+                    $(".full").switchClass("full", e.target.value, 1000);
                 }
-                if(shape.classList.contains('partial'))
+                else if(shape.classList.contains('partial'))
                 {
-                    shape.classList.remove('partial');
+                    //shape.classList.remove('partial');
+                    $(".partial").switchClass("partial", e.target.value, 1000);
                 }
 
-                shape.classList.add(e.target.value);
+                //shape.classList.add(e.target.value);
+
+                localStorage.setItem("classList", shape.classList);
             }
         }
 
-
+        //Creating a timeline for animations
         var timeline = anime.timeline({
+            //Setting the animation to not play by default
             autoplay: false,
+
+            //Adding easing to the animations
             easing: 'easeOutExpo'
         });
 
+        //Adding animations to the timeline
         timeline
         .add({
             targets: ".buttonSelectors .opacSelector",
@@ -160,38 +205,97 @@
         })
         .add({
             targets: ".buttonSelectors .opacSelector",
+            translateY: 200
+        })
+        .add({
+            targets: ".buttonSelectors .opacSelector",
+            opacity: 0,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .colorSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .colorSelector",
+            translateY: 300
+        })
+        .add({
+            targets: ".buttonSelectors .colorSelector",
+            opacity: 0,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .sizeSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .sizeSelector",
+            translateY: 400
+        })
+        .add({
+            targets: ".buttonSelectors .sizeSelector",
+            opacity: 0,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .shapeSelector",
+            translateY: -25,
+            offset: '-=800'
+        })
+        .add({
+            targets: ".buttonSelectors .shapeSelector",
             translateY: 500
         })
         .add({
-            targets: ".buttonSelectors .colorSelector",
-            translateY: -25,
-            offset: '-=800'
-        })
-        .add({
-            targets: ".buttonSelectors .colorSelector",
-            translateY: 600
-        })
-        .add({
-            targets: ".buttonSelectors .sizeSelector",
-            translateY: -25,
-            offset: '-=800'
-        })
-        .add({
-            targets: ".buttonSelectors .sizeSelector",
-            translateY: 700
-        })
-        .add({
             targets: ".buttonSelectors .shapeSelector",
-            translateY: -25,
+            opacity: 0,
             offset: '-=800'
         })
         .add({
-            targets: ".buttonSelectors .shapeSelector",
-            translateY: 800
+            targets: ".shape",
+            translateX: 200,
+            translateY: 200,
+            scale: 2
         })
-        timeline.play();
-        timeline.reverse();
-        document.querySelector(".menuMove").onclick = function () {timeline.reverse(); timeline.play();}
+        //timeline.play();
+        //timeline.reverse();
+        var revTimeline = timeline;
+        var forMove = true;
+        var play = true;
+        //document.querySelector(".menuMove").onclick = function () {if(forMove == false){timeline.reverse();} /*timeline.reverse();*/timeline.play(); forMove = !forMove; console.log(forMove);}
+        document.querySelector(".revMove").onclick = function () {revTimeline.reverse(); revTimeline.play();}
+        document.querySelector(".menuMove").onclick = function () {
+            /*if(forMove)
+            {
+                regPlay();
+            }
+            else if(forMove == false)
+            {
+                revPlay();
+            }*/
+            if(forMove == false)
+            {
+                timeline.reverse();
+            }
+            timeline.play();
+            forMove = !forMove;
+            }
+
+        function regPlay ()
+        {
+            timeline.play();
+            forMove = false;
+        }
+
+        function revPlay ()
+        {
+            timeline.reverse();
+            timeline.play();
+            forMove = true;
+        }
     </script>
 </body>
 </html>
