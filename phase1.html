@@ -296,6 +296,18 @@
             timeline.play();
             forMove = true;
         }
+
+
+        let menuButtons = document.querySelectorAll(".sideText button");
+
+        for(let i = 0; i < menuButtons.length; i++)
+        {
+            menuButtons[i].onclick = function (e)
+            {
+
+                localStorage.setItem("classList", shape.classList);
+            }
+        }
     </script>
 </body>
 </html>
