@@ -6,6 +6,8 @@ body
 {
     background-color: rgb(78, 75, 75);
     min-height: 100vh;
+    color: white;
+    font-family: 'Oswald', sans-serif;
 }
 
 #title
@@ -85,7 +87,7 @@ button a:visited
 /***/
 /*PHASE ONE*/
 /***/
-.creationPage, .elasticPage, .followPage
+.creationPage, .elasticPage, .followPage, .notesPage
 {
     display: flex;
     flex-direction: row;
@@ -251,4 +253,13 @@ button a:visited
     position: relative;
     top: 0px;
     left: 0px;
+}
+
+/***/
+/*NOTES*/
+/***/
+.sourceText
+{
+    width: 80%;
+    margin: 0 auto;
 }
