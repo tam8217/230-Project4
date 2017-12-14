@@ -16,95 +16,32 @@
             <div class="sideText">
                 <h2 class="sideTitle">Animation Station</h2>
                 <div class="horizontalLine"></div>
+                    <button id="indexBut"><a href="index.html">Home Page</a></button>
                     <button id="p1But"><a href="phase1.html">Phase 1</a></button>
                     <button id="p2But"><a href="#">Phase 2</a></button>
                     <button id="p3But"><a href="phase3.html">Phase 3</a></button>
             </div>
             <div class="vertBar"></div>
         </div>
-
-        <div class="shapeHolder">
-            <div class="shape square small red full"></div>
-            <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="1" class="slider" id="horiSlider">
+        <div class="bigHold">
+            <div class="shapeHolder">
+                <div class="shape square small red full"></div>
+                
             </div>
-            <div class="slidecontainer" id="vertSlideContainer">
-                    <input type="range" min="1" max="100" value="1" class="slider" id="vertSlider">
-            </div>
-            <div class="fireBut">
-                <button id="fire">Fire</button>
+            <div class="launcher">
+                <div class="slidecontainer" id="vertSlideContainer">
+                        <input type="range" min="1" max="100" value="1" class="slider" id="vertSlider">
+                </div>
+                <div class="slidecontainer" id="horiSlideContainer">
+                        <input type="range" min="1" max="100" value="1" class="slider" id="horiSlider">
+                </div>
+                
+                <div class="fireBut">
+                    <button id="fire">Fire</button>
+                </div>
             </div>
         </div>
     </div>
-    <script>
-        //Getting a locally stored object if it exists, will be null if none has been created
-        const storedClassList = localStorage.getItem("classList");
-            
-        //If the classlist was modified from the default values, load them in
-        if(storedClassList.includes('circle'))
-        {
-            //Switch the previous value to the new one
-            $(".square").switchClass("square", "circle", 1000);
-        }
-
-        //Checking color
-        if(storedClassList.includes('blue'))
-        {
-            $(".red").switchClass("red", "blue", 1000);
-        }
-
-        //Checking size
-        if(storedClassList.includes('large'))
-        {
-            $(".small").switchClass("small", "large", 1000);
-        }
-
-        //Checking opacity
-        if(storedClassList.includes('partial'))
-        {
-            $(".full").switchClass("full", "partial", 1000);
-        }
-        
-
-        //Getting the slider
-        let horiSlider = document.querySelector("#horiSlider");
-        let vertSlider = document.querySelector("#vertSlider");
-        let xPos = 0;
-        let yPos = 0;
-
-        horiSlider.oninput = function ()
-        {
-            let slideAnim = anime({
-                targets: ".shape",
-                translateX: this.value * 2,
-                translateY: yPos
-            })
-            xPos = this.value * 2;
-            slideAnim.play();
-        }
-        vertSlider.oninput = function ()
-        {
-            let slideAnim = anime({
-                targets: ".shape",
-                translateY: this.value * 2,
-                translateX: xPos
-            })
-            yPos = this.value * 2;
-            slideAnim.play();
-        }
-
-        let button = document.querySelector("#fire");
-
-        button.onclick = function ()
-        {
-            let elasticVar  = (xPos + yPos) / 1.5; 
-            let launchAnim = anime({
-                targets: ".shape",
-                translateX: -(xPos * 2),
-                translateY: -(yPos *2),
-                elasticity: elasticVar
-            })
-        }
-    </script>
+    <script src="launch.js"></script>
 </body>
 </html>

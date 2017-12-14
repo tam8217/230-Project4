@@ -16,6 +16,7 @@
             <div class="sideText">
                 <h2 class="sideTitle">Animation Station</h2>
                 <div class="horizontalLine"></div>
+                <button id="indexBut"><a href="index.html">Home Page</a></button>
                     <button id="p1But"><a href="phase1.html">Phase 1</a></button>
                     <button id="p2But"><a href="phase2.html">Phase 2</a></button>
                     <button id="p3But"><a href="#">Phase 3</a></button>
@@ -27,54 +28,17 @@
         <div class="shape square small red full"></div>
 
         <figure class="figBox">
-            <svg viewBox="0 0 100 100">
-                <line class="stroke" x1="20" y1="30" x2="70"  y2="80"  />
+            <svg viewBox="0 0 200 200">
+                <!--<line class="stroke" x1="20" y1="30" x2="70"  y2="80"  />-->
+                <!--<rect class="stroke" x="20" y = "30" width="40" height="65" /> -->
+                <polygon class="stroke" points="20, 20 40, 30 60, 20 50, 40 60, 70 10, 50 30, 40"/>
             </svg>
         </figure>
+        <button class="shapeChange">Change Shape</button>
         </div>
     </div>
 
 
-    <script>
-        //Getting a locally stored object if it exists, will be null if none has been created
-        const storedClassList = localStorage.getItem("classList");
-            
-        //If the classlist was modified from the default values, load them in
-        if(storedClassList.includes('circle'))
-        {
-            //Switch the previous value to the new one
-            $(".square").switchClass("square", "circle", 1000);
-        }
-
-        //Checking color
-        if(storedClassList.includes('blue'))
-        {
-            $(".red").switchClass("red", "blue", 1000);
-        }
-
-        //Checking size
-        if(storedClassList.includes('large'))
-        {
-            $(".small").switchClass("small", "large", 1000);
-        }
-
-        //Checking opacity
-        if(storedClassList.includes('partial'))
-        {
-            $(".full").switchClass("full", "partial", 1000);
-        }
-
-        let path = anime.path("line");
-
-        let followAnim = anime({
-            targets: ".shape",
-            translateX: path('x'),
-            translateY: path('y'),
-            rotate: path('angle'),
-            easing: 'linear',
-            duration: 1000,
-            loop: true
-        })
-    </script>
+    <script src="follow.js"></script>
 </body>
 </html>
