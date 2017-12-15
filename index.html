@@ -8,33 +8,74 @@
     <script src="anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <title>Humble Beginnings</title>
+    <title>Animation Station</title>
 </head>
 <body>
     <div class="homePage">
+        <div>
         <h1 id="title">Animation Station</h1>
         
-        <p>Welcome to Animation Station! Here, you'll be able to make a shape and play around with it in various ways. For the full experieince, start with Phase 1, and continue onto Phase 2 and 3. Otherwise, you will be using a default shape, rather than one created by you!</p>
-        
-        
+        <p>
+            Welcome to Animation Station! 
+            Here, you'll be able to make a shape and play around with it in various ways. 
+            For the full experieince, start with Phase 1, and continue onto Phase 2 and 3. 
+            Otherwise, you will be using a default shape, rather than one created by you!
+            Click on the titles below to learn more, and get started!
+        </p>
+        </div>
 
-        <h3>Phase 1</h3>
-        <p>In Phase 1, you will create your own shape which you will use in Phases 2 and 3. Making a shape is easy! Once inside Phase 1, you'll see sets of buttons; try changing one! Once you've made one that you like, you can move on. From here, you can go to either Phase 2 or 3, whichever you like. Don't worry, your shape will still be there, and even if you leave and come back, it will be waiting for you! Feel free to return to Phase 1 at any time to make a new shape. </p>
-        <p>If you're ready, let's get started!</p>
-        <button id="p1But"><a href="phase1.html">Phase 1</a></button>
+        <div class="blockHold">
+        <div class="block">
+            <h2 id="p1Title">Phase 1</h2>
+            <div class="blockText" id="p1">
+                <p>
+                    In Phase 1, you will create your own shape which you will use in Phases 2 and 3. Making a shape is easy! 
+                    Use various options to create a shape you like, and then move onto Phase 2 and 3 to actually use it. Don't worry,
+                    it will stay with you the whole time, even if you leave and come back!
+                </p>
+                <p>If you're ready, let's get started!</p>
+                <button id="p1But"></button>
+            </div>
+        </div>
 
-        <h3>Phase 2</h3>
-        <p>In Phase 2, you'll get to throw your shape around the screen! When you load into Phase 2, your shape will form itself, and come at rest in the bottom right of the screen. Next to it you'll see the 'launching mechanism'. As you move either of the sliders, you'll see your shape move too; you can move them as much or as little as you like. When you've 'set' your shape, press the fire button and watch your shape fly! To bring it back, simply move one of the sliders again.</p>
-        <button id="p2But"><a href="phase2.html">Phase 2</a></button>
 
-        <h3>Phase 3</h3>
-        <p>In Phase 3, you can sit back and watch your shape move. When the page loads, you will see the initial shape being drawn; this is a random shape. Your shape will then form, and begin to follow a path in the shape of the random path. When you get tired of the current shape, press the button, and the current path will morph into a new one, which your shape will then follow. </p>
-        <button id="p3But"><a href="phase3.html">Phase 3</a></button>
+        <div class="block">
+            <h2 id="p2Title">Phase 2</h2>
+            <div class="blockText" id="p2">
+                <p>
+                In Phase 2, you'll get to throw your shape around the screen! 
+                Using a set of sliders, you'll be able to launch your shape, and watch it fly across the screen. 
+                Be sure to try it with different sized shapes!
+                </p>
+            
+                <button id="p2But"></button>
+            </div>
+        </div>
 
-        <h3>Notes</h3>
-        <p>Go here to look at documentation for this project.</p>
-        <button id="notesBut"><a href="notes.html">Notes</a></button>
+        <div class="block">
+            <h2 id="p3Title">Phase 3</h2>
+            <div class="blockText" id="p3">
+                <p>
+                    In Phase 3, you can sit back and watch your shape move. 
+                    When the page loads, you will see an initial, random shape being drawn, and your shape will start moving with it!
+                    You can change the shape, and watch it morph to something different, all while your shape follows off to the side!
+                </p>
+                <button id="p3But"></button>
+            </div>
+        </div>
 
+        <div class="block">
+        <h2 id="notesTitle">Notes</h2>
+        <div class="blockText" id="notes">
+        <p>
+            Go here to look at documentation for this project.
+        </p>
+        <button id="notesBut"></button>
+        </div>
+        </div>
+        </div>
     </div>
+
+    <script src="home.js"></script>
 </body>
 </html>

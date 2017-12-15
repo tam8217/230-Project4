@@ -9,6 +9,7 @@
         //Getting a locally stored object if it exists, will be null if none has been created
         const storedClassList = localStorage.getItem("classList");
         
+        //If a stored list exists
         if(storedClassList)
         {
         //If the classlist was modified from the default values, load them in
@@ -42,6 +43,7 @@
             $(".full").switchClass("full", "partial", 1000);
         }
         }
+
         //Looping through all the radio buttons and adding listeners for when their value is changed
         for(let i = 0; i < radShape.length; i++)
         {
@@ -50,16 +52,12 @@
                 //Checking the current value of the button, changing it to the selected value
                 if(shape.classList.contains('square'))
                 {
-                    //shape.classList.remove('square');
                     $(".shape").switchClass("square", e.target.value, 1000);
                 }
                 else if(shape.classList.contains('circle'))
                 {
-                    //shape.classList.remove('circle');
                     $(".shape").switchClass("circle", e.target.value, 1000);
                 }
-                //shape.classList.add(e.target.value);
-                
                 //Setting the new classlist to the stored one, so it can be called later
                 localStorage.setItem("classList", shape.classList);
             }
@@ -72,17 +70,12 @@
             {
                 if(shape.classList.contains('small'))
                 {
-                    //shape.classList.remove('small');
                     $(".small").switchClass("small", e.target.value, 1000);
                 }
                 else if(shape.classList.contains('large'))
                 {
-                    //shape.classList.remove('large');
                     $(".large").switchClass("large", e.target.value, 1000);
                 }
-
-                //shape.classList.add(e.target.value);
-                
                 localStorage.setItem("classList", shape.classList);
             }
         }
@@ -94,17 +87,12 @@
             {
                 if(shape.classList.contains('red'))
                 {
-                    //shape.classList.remove('red');
                     $(".red").switchClass("red", e.target.value, 1000);
                 }
                 else if(shape.classList.contains('blue'))
                 {
-                    //shape.classList.remove('blue');
                     $(".blue").switchClass("blue", e.target.value, 1000);
                 }
-
-                //shape.classList.add(e.target.value);
-                
                 localStorage.setItem("classList", shape.classList);
             }
         }
@@ -124,9 +112,6 @@
                     //shape.classList.remove('partial');
                     $(".partial").switchClass("partial", e.target.value, 1000);
                 }
-
-                //shape.classList.add(e.target.value);
-
                 localStorage.setItem("classList", shape.classList);
             }
         }
@@ -144,20 +129,25 @@
         timeline
         .add({
             targets: ".buttonSelectors .opacSelector",
-            translateY: -25
+            //Translating the item up
+            translateY: -20
         })
         .add({
             targets: ".buttonSelectors .opacSelector",
+            //Translating the item down
             translateY: 200
         })
         .add({
             targets: ".buttonSelectors .opacSelector",
+            //Making the item invisible
             opacity: 0,
+            //Adding an offset so this animtion occurs while the other is finishing
             offset: '-=800'
         })
         .add({
             targets: ".buttonSelectors .colorSelector",
-            translateY: -25,
+            translateY: -20,
+            //Starting to translate this item while the other is fading
             offset: '-=800'
         })
         .add({
@@ -171,7 +161,7 @@
         })
         .add({
             targets: ".buttonSelectors .sizeSelector",
-            translateY: -25,
+            translateY: -20,
             offset: '-=800'
         })
         .add({
@@ -185,7 +175,7 @@
         })
         .add({
             targets: ".buttonSelectors .shapeSelector",
-            translateY: -25,
+            translateY: -20,
             offset: '-=800'
         })
         .add({
@@ -198,56 +188,63 @@
             offset: '-=800'
         })
         .add({
-            targets: ".shape",
-            translateX: 200,
-            translateY: 200,
-            scale: 2
+            targets: ".controlButtons",
+            translateX: -100,
+
         })
-        //timeline.play();
-        //timeline.reverse();
-        var revTimeline = timeline;
-        var forMove = true;
-        var play = true;
-        //document.querySelector(".menuMove").onclick = function () {if(forMove == false){timeline.reverse();} /*timeline.reverse();*/timeline.play(); forMove = !forMove; console.log(forMove);}
-        document.querySelector(".revMove").onclick = function () {revTimeline.reverse(); revTimeline.play();}
-        document.querySelector(".menuMove").onclick = function () {
-            /*if(forMove)
-            {
-                regPlay();
-            }
-            else if(forMove == false)
-            {
-                revPlay();
-            }*/
-            if(forMove == false)
-            {
-                timeline.reverse();
-            }
-            timeline.play();
-            forMove = !forMove;
-            }
+        .add({
+            targets: ".shape",
+            translateX: -200,
+            translateY: 200,
+            scale: 1.5
+        })
 
-        function regPlay ()
-        {
-            timeline.play();
-            forMove = false;
-        }
+        //Running the animation as the page loads
+        timeline.reverse();
+        timeline.play();
 
-        function revPlay ()
-        {
-            timeline.reverse();
-            timeline.play();
-            forMove = true;
-        }
-
-
+        //Adding a listener that plays the animation every time the button is pressed
+        document.querySelector(".revMove").onclick = function () {timeline.reverse(); timeline.play();}
+        
+        //Making it so that changing pages will always save the current class list
         let menuButtons = document.querySelectorAll(".sideText button");
 
+        //Adding in links to other pages 
+        let link = document.createElement("a");
+        //Setting the destination
+        link.href = "#";
+        //Setting the text 
+        link.innerHTML = "Phase 1";
+        //Setting the color of this element becuase it acts strangely with this page
+        link.style.color = "red";
+        //Setting the item to be a child
+        document.querySelector("#p1But").appendChild(link);
+
+        let link2 = document.createElement("a");
+        link2.href = "phase2.html";
+        link2.innerHTML = "Phase 2";
+        document.querySelector("#p2But").appendChild(link2);
+
+        let link3 = document.createElement("a");
+        link3.href = "phase3.html";
+        link3.innerHTML = "Phase 3";
+        document.querySelector("#p3But").appendChild(link3);
+
+        let link4 = document.createElement("a");
+        link4.href = "index.html";
+        link4.innerHTML = "Home Page";
+        document.querySelector("#indexBut").appendChild(link4);
+
+        let link5 = document.createElement("a");
+        link5.href = "notes.html";
+        link5.innerHTML = "Notes";
+        document.querySelector("#notesBut").appendChild(link5);
+
+        //Adding listners to every menu button to save the list when the page is changed
         for(let i = 0; i < menuButtons.length; i++)
         {
             menuButtons[i].onclick = function (e)
             {
-
                 localStorage.setItem("classList", shape.classList);
             }
         }

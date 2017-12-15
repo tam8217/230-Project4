@@ -8,48 +8,64 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="mainStyle.css">
-    <title>Document</title>
+    <title>Phase 1</title>
 </head>
 <body>
     <div class="creationPage">
-        <div class="sidebar">
-            <div class="sideText">
-                <h2 class="sideTitle">Animation Station</h2>
-                <div class="horizontalLine"></div>
-                    <button id="indexBut"><a href="index.html">Home Page</a></button>
-                    <button id="p1But"><a href="#">Phase 1</a></button>
-                    <button id="p2But"><a href="phase2.html">Phase 2</a></button>
-                    <button id="p3But"><a href="phase3.html">Phase 3</a></button>
-                    <button id="notesBut"><a href="notes.html">Notes</a></button>
+        <div class="topHold">
+            <div class="sidebar">
+                <div class="sideText">
+                    <h2 class="sideTitle">Animation Station</h2>
+                    <div class="horizontalLine"></div>
+                    <button id="indexBut"></button>
+                    <button id="p1But" class="active"></button>
+                    <button id="p2But"></button>
+                    <button id="p3But"></button>
+                    <button id="notesBut"></button>
+                </div>
+                <div class="vertBar"></div>
             </div>
-            <div class="vertBar"></div>
-        </div>
-        <div class="buttonSelectors">
-            <div class="shapeSelector">
-                <p><input type="radio" name="shapes" class="shapes" id="circ"value="circle">Circle</p>
-                <p><input type="radio" name="shapes" class="shapes" if="squr"value="square" checked>Square</p>
-            </div>
+            <div class="buttonSelectors">
+                <div class="shapeSelector">
+                    <label>Shape</label>
+                    <p><input type="radio" name="shapes" class="shapes" id="circ" value="circle">Circle</p>
+                    <p><input type="radio" name="shapes" class="shapes" id="squr" value="square" checked>Square</p>
+                </div>
 
-            <div class="sizeSelector">
-                <p><input type="radio" name="sizes" class="sizes" id="small" value="small" checked>Small</p>
-                <p><input type="radio" name="sizes" class="sizes" id="large" value="large">Large</p>
-            </div>
+                <div class="sizeSelector">
+                    <label>Size</label>
+                    <p><input type="radio" name="sizes" class="sizes" id="small" value="small" checked>Small</p>
+                    <p><input type="radio" name="sizes" class="sizes" id="large" value="large">Large</p>
+                </div>
 
-            <div class="colorSelector">
-                <p><input type="radio" name="colors" class="colors" id="red" value="red" checked>Red</p>
-                <p><input type="radio" name="colors" class="colors" id="blue" value="blue">Blue</p>
-            </div>
+                <div class="colorSelector">
+                    <label>Color</label>
+                    <p><input type="radio" name="colors" class="colors" id="red" value="red" checked>Red</p>
+                    <p><input type="radio" name="colors" class="colors" id="blue" value="blue">Blue</p>
+                </div>
 
-            <div class="opacSelector">
-                <p><input type="radio" name="opacity" class="opacity" id="full" value="full" checked>Full</p>
-                <p><input type="radio" name="opacity" class="opacity" id="part" value="partial">Partial</p>
+                <div class="opacSelector">
+                    <Label>Opacity</Label>
+                    <p><input type="radio" name="opacity" class="opacity" id="full" value="full" checked>Full</p>
+                    <p><input type="radio" name="opacity" class="opacity" id="part" value="partial">Partial</p>
+                </div>
+            </div>
+            <div class="controlButtons">
+                <button class="revMove">Move Menus</button>
+            </div>
+            
+            <div class="p1Shape">
+                <div class="shape square small red full"></div>
             </div>
         </div>
-        <div class="controlButtons">
-            <button class="menuMove">Move Menus</button>
-            <button class="revMove">Reverse Menus</button>
+
+        <div class="phase1Expo">
+            <p>Welcome to Phase 1! If this is your first time here, you'll see a simple red square, otherwise, you'll see your created shape! 
+                To change the shape, select any of the buttons above, and watch it change! If you want a better look at your shape, press the
+                'Move Menus' button, and your shape will take center stage! Once you have a shape you like, head onto Phase 2 or 3 to experiment
+                with it! 
+            </p>
         </div>
-        <div class="shape square small red full"></div>
     </div>
 
 

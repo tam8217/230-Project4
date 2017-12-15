@@ -8,34 +8,49 @@
     <script src="anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <title>Document</title>
+    <title>Phase 3</title>
 </head>
 <body>
     <div class="followPage">
-        <div class="sidebar">
-            <div class="sideText">
-                <h2 class="sideTitle">Animation Station</h2>
-                <div class="horizontalLine"></div>
-                <button id="indexBut"><a href="index.html">Home Page</a></button>
-                    <button id="p1But"><a href="phase1.html">Phase 1</a></button>
-                    <button id="p2But"><a href="phase2.html">Phase 2</a></button>
-                    <button id="p3But"><a href="#">Phase 3</a></button>
-                    <button id="notesBut"><a href="notes.html">Notes</a></button>
+        <div class="topHold">
+            <div class="sidebar">
+                <div class="sideText">
+                    <h2 class="sideTitle">Animation Station</h2>
+                    <div class="horizontalLine"></div>
+                    <button id="indexBut"></button>
+                        <button id="p1But"></button>
+                        <button id="p2But"></button>
+                        <button id="p3But" class="active"></button>
+                        <button id="notesBut"></button>
+                </div>
+                <div class="vertBar"></div>
             </div>
-            <div class="vertBar"></div>
+            <aside class="butBox">
+                <button class="shapeChange">Change Shape</button>
+            </aside>
+
+            <div class="shapeManager">
+                <div class="shape square small red full"></div>
+            </div>
+            
+            <div class="figDiv">
+                <figure class="figBox">
+                    <svg viewBox="0 0 150 150">
+                        <!--<line class="stroke" x1="20" y1="30" x2="70"  y2="80"  />-->
+                        <!--<rect class="stroke" x="20" y = "30" width="40" height="65" /> -->
+                        <polyline class="stroke" points="20, 20 40, 30 60, 20 50, 40 60, 70 10, 50 30, 40"/>
+                    </svg>
+                </figure>
+            </div>
         </div>
 
-        <div class="shapeManager">
-        <div class="shape square small red full"></div>
-
-        <figure class="figBox">
-            <svg viewBox="0 0 200 200">
-                <!--<line class="stroke" x1="20" y1="30" x2="70"  y2="80"  />-->
-                <!--<rect class="stroke" x="20" y = "30" width="40" height="65" /> -->
-                <polygon class="stroke" points="20, 20 40, 30 60, 20 50, 40 60, 70 10, 50 30, 40"/>
-            </svg>
-        </figure>
-        <button class="shapeChange">Change Shape</button>
+        <div class="phase3Expo">
+            <p>
+                Welcome to Phase 3! Here, you can relax, and just watch your shape move by itself. On the side, you will see a line, probably
+                with lots of differnt points and edges! This line is totally random, and if you want a different one, just press the 'Change Shape'
+                button above, and you'll see it morph into something different! Sometimes, your shape might act a little weird after changing,
+                so please be kind, and don't change its path too often!
+            </p>
         </div>
     </div>
 

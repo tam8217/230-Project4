@@ -8,19 +8,20 @@
     <script src="anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <title>Document</title>
+    <title>Phase 2</title>
 </head>
 <body>
     <div class="elasticPage">
+        <div class="topHold">
         <div class="sidebar">
             <div class="sideText">
                 <h2 class="sideTitle">Animation Station</h2>
                 <div class="horizontalLine"></div>
-                    <button id="indexBut"><a href="index.html">Home Page</a></button>
-                    <button id="p1But"><a href="phase1.html">Phase 1</a></button>
-                    <button id="p2But"><a href="#">Phase 2</a></button>
-                    <button id="p3But"><a href="phase3.html">Phase 3</a></button>
-                    <button id="notesBut"><a href="notes.html">Notes</a></button>
+                    <button id="indexBut"></button>
+                    <button id="p1But"></button>
+                    <button id="p2But" class="active"></button>
+                    <button id="p3But"></button>
+                    <button id="notesBut"></button>
             </div>
             <div class="vertBar"></div>
         </div>
@@ -41,6 +42,15 @@
                     <button id="fire">Fire</button>
                 </div>
             </div>
+        </div>
+        </div>
+        <div class="phase2Expo">
+            <p>Welcome to Phase 2! Here, you get to launch your shape across the screen! Near your shape are two sliders, a vertical and 
+                horizontal one. If you move them, you'll see your shape move, and it will stop when you're done. Once you get your shape where 
+                you want, press the fire button and watch it fly! To bring it back, simply move one of the sliders, and you'll be able to
+                shoot it again.
+
+            </p>
         </div>
     </div>
     <script src="launch.js"></script>

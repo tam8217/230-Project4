@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="mainStyle.css">
-    <title>Document</title>
+    <title>Notes</title>
 </head>
 <body>
     <div class="notesPage">
@@ -13,11 +13,11 @@
                 <div class="sideText">
                     <h2 class="sideTitle">Animation Station</h2>
                     <div class="horizontalLine"></div>
-                    <button id="indexBut"><a href="index.html">Home Page</a></button>
-                        <button id="p1But"><a href="phase1.html">Phase 1</a></button>
-                        <button id="p2But"><a href="phase2.html">Phase 2</a></button>
-                        <button id="p3But"><a href="phase3.html">Phase 3</a></button>
-                        <button id="notesBut"><a href="#">Notes</a></button>
+                    <button id="indexBut"></button>
+                        <button id="p1But"></button>
+                        <button id="p2But"></button>
+                        <button id="p3But"></button>
+                        <button id="notesBut" class="active"></button>
                 </div>
                 <div class="vertBar"></div>
             </div>
@@ -31,14 +31,23 @@
             <h3>Additional Libraries</h3>
             <p>I also implemented <a href="https://jqueryui.com/">jQueryUI</a>, a branch of <a href="jquery.com">jQuery</a>. JQueryUI allowed
             for smooth transitions between switching classes, as used on Phase 1; the Switch Class function of jQueryUI was incredibly helpful
-            for that.</p>
+            for that. It also made it much easier to make classes appear on the home page.</p>
             
             <h3>Tutorials/Code Utilized</h3>
-            <p>The gradient lines were taken from these sites: https://css-tricks.com/forums/topic/sexy-css3-fading-line/ https://gist.github.com/tylergaw/2417036 https://www.w3schools.com/css/css3_gradients.asp</p>
+            <p>The gradient lines were taken from these sites: <a href="https://css-tricks.com/forums/topic/sexy-css3-fading-line/">CSS-Tricks</a>, <a href="https://gist.github.com/tylergaw/2417036">Github Gists</a>, and additional help came from  <a href="https://www.w3schools.com/css/css3_gradients.asp">W3 Schools</a>.</p>
             <p>The styled sliders came from this W3 Schools https://www.w3schools.com/howto/howto_js_rangeslider.asp. This also helped guide
                 me as to how to make slider input change the position of the shape in Phase 2.</p> 
             <p>SVG creation and workings came from Morten Rand-Hendriksen's tutorial on <a href="https://www.lynda.com/SVG-tutorials/Draw-polygon/622089/658126-4.html?org=rit.edu">Lynda.com</a></p>
-
+            <p>Most of the animations using anime.js were created with the help of , or modifications on, their demos on their <a href="http://animejs.com/documentation/">documentation page</a>.</p>
+            <h3>Fonts</h3>
+            <p>Both of the fonts used for this website came from Google Fonts. The headings are <a href="https://fonts.google.com/specimen/Oswald">Oswald</a>, while the body text is <a href="https://fonts.google.com/specimen/Roboto">Roboto</a></p>
+            
+            <h3>Validation</h3>
+            <p>
+                Becuase of the use of SVGs in Phase 3, if the CSS for the site is validated without CSS3 + SVG, it will throw errors.
+                When checked with CSS3 + SVG, the site encounters no errors. 
+            </p>
+            
             <h2>Above and Beyond</h2>
             <h3>What I learned</h3>
             <p>Although we did an out of class exercise on local storage, I needed to relearn how to use it, as well as how to properly implement
@@ -72,10 +81,26 @@
                 thought that would look too boring, so I wanted to try something more. However, polygonal figures can vary greatly with their 
                 smoothness, and can be quite difficult to predict. If I had not had a myriad of other projects to work on during this period, I
                 would have liked to have made it so that the random SVG could be a circle, or a random polygon, and both would have random aspects
-                to them. 
+                to them. In the end, I moved from using a 'polygon' SVG to using a 'polyline'. This made the follwing a bit smoother, and allowed 
+                for more variety in the shapes that would be produced, since they don't have to loop back to the initial point. I also wanted 
+                try and implement the direct path following, like in the example on the anime.js documentation, but to do so would have required
+                an immense amount of testing, and would not have been compatible with varying shape sizes, something which is core to this 
+                experience. 
             </p>
 
+            <p>
+                When it came time to add Javascript to the Index page, I had a relatively clear idea of what I wanted: hovering over the 'title' text
+                for each phase would prompt the user to click it, and doing so would reveal the information about it. As well, when the user clicked
+                on another heading, the currently open one would close. After a few hours of testing, and multiple resets of the file, I realized 
+                this ideal would not be met in the time constraints I had. For unknown reasons, the methods that I was using to implement this
+                were not working, and would sometimes cause the page to buffer and break, even though I was running it locally. This occured for
+                both the appearing/disappearing text that would prompt the user, as well as the text underneath; in attempts to do both, the 
+                site would break. In the end, I decided to compromise, and at least add in the bottom text appearing, even if it is not as fliud
+                or appealing as I would like. 
+            </p>
         </div>
     </div>
+
+    <script src="notes.js"></script>
 </body>
 </html>

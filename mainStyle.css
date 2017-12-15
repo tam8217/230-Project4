@@ -1,36 +1,100 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300|Roboto');
 /***/
 /*BODY*/
 /***/
+/* Changing background color,
+Setting height,
+Setting text color,
+Setting general font
+*/
 body
 {
     background-color: rgb(78, 75, 75);
-    min-height: 100vh;
+    min-height: 95vh;
     color: white;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+/*Changing font family for headers*/
+h1, h2, h3
+{
     font-family: 'Oswald', sans-serif;
 }
 
+/*Increasing font size, centering*/
 #title
 {
-    font-family: 'Oswald', sans-serif;
-    color: white;
     font-size: 3em;
     margin: 0 auto;
 }
 
+/*Making links readable*/
+a
+{
+    color: red;
+}
+
+/*Emphasizing the active page*/
+.active
+{
+    background-color: white;
+    border: 2px solid red;
+}
 /***/
 /*HOME PAGE*/
 /***/
+/*Centering the block,
+Setting a height,
+Displaying in flex,
+Setting a width
+*/
 .homePage
 {
     margin:  0 auto;
-    width: 50%;
-    min-height: 100vh;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
+/*Displaying in flex,
+Setting a width*/
+.blockHold
+{
+    display: flex;
+    flex-direction: row;
+    min-width: 80%;
+}
+
+/*Making each block appear large,
+Spacing out the blocks*/
+.block
+{
+    min-width: 25%;
+    margin-right: 20px;
+}
+
+/*Not initialy displaying the text, shown later in js*/
+.blockText
+{
+    display: none;
+}
+
+/*Showing that the titles are clickable*/
+.block h2
+{
+    cursor: pointer;
+}
 /***/
 /*BUTTONS*/
 /***/
+/*Adding a border,
+Curving the sides,
+Setting a size for the buttons,
+Increasing font size,
+Spacing out the buttons*/
+
 button
 {
     border: 1px solid white;
@@ -42,11 +106,14 @@ button
     
 }
 
+/*Turning off link underlining*/
 button a
 {
+    color: black;
     text-decoration: none;
 }
 
+/*Displaying the text as black*/
 button a:visited
 {
     color: black;
@@ -55,6 +122,7 @@ button a:visited
 /***/
 /*SIDEBAR*/
 /***/
+/*Adding the horizontal gradient line*/
 .horizontalLine
 {
     margin: 25px 0;
@@ -63,6 +131,7 @@ button a:visited
     background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, white));
 }
 
+/*Adding the vertical gradient line*/
 .vertBar
 {
     height: 75vh;
@@ -72,6 +141,8 @@ button a:visited
     background-size: 1px 75vh;
 }
 
+/*Displaying as flex,
+Setting width*/
 .sideText
 {
     display: flex;
@@ -79,6 +150,7 @@ button a:visited
     min-width: 200px;
 }
 
+/*Centering buttons*/
 .sideText button
 {
     display: block;
@@ -87,35 +159,59 @@ button a:visited
 /***/
 /*PHASE ONE*/
 /***/
-.creationPage, .elasticPage, .followPage, .notesPage
+/*Displaying in row flex*/
+.notesPage
 {
     display: flex;
     flex-direction: row;
 }
 
+/*Displaying in column flex*/
+.creationPage, .elasticPage, .followPage
+{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Displaying in row flex*/
+.topHold
+{
+    display: flex;
+    flex-direction: row;
+}
+
+/*Displaying as column flex,
+Adding right spacing,
+Adding push from the sidebar on left*/
 .buttonSelectors
 {
     display: flex;
     flex-direction: column;
     margin-right: 100px;
-    color: white;
+    margin-left: 20px;
 }
 
+/*Spacing out from the shape*/
 .controlButtons
 {
     margin-right: 30px;
 }
 
+/*Pushing the sidebar to the left side of the screen,
+Displaying row flex,
+Setting width
+*/
 .sidebar
 {
     order: -1;
-    font-family: 'Oswald', sans-serif;
-    color: white;
     display: flex;
     flex-direction: row;
     min-width: 200px;
 }
 
+/*Aligning the title on the side,
+Increasing the size,
+Spacing it from the vertical bar on the right*/
 .sidebar h2
 {
     text-align: center;
@@ -123,52 +219,68 @@ button a:visited
     padding-right: 10px;
 }
 
+/*Adding a border*/
 .square
 {
     border: 1px solid white;
 }
 
+/*Adding a border, and curving it to make a circle*/
 .circle
 {
     border: 1px solid white;
     border-radius: 50%;
-    background-color: blue;
 }
 
+/*Making a small shape, small dimensions*/
 .small
 {
     width: 100px;
     height: 100px;
 }
+
+/*Making a larger shape, larger dimensions*/
 .large
 {
     width: 300px;
     height: 300px;
 }
 
+/*Adding a red background to the shape*/
 .red
 {
     background-color: red;
 }
 
+/*Adding a blue background to the shape*/
 .blue
 {
     background-color: blue;
 }
 
+/*Making the shape fully visible*/
 .full
 {
     opacity: 1;
 }
 
+/*Making the shape partially transparent*/
 .partial
 {
     opacity: .5;
 }
 
+/*Putting the text in the center of the screen, spaced from the sides*/
+.phase1Expo 
+{
+    margin: 0 auto;
+    width: 75%;
+}
+
 /***/
 /*PHASE 2*/
 /***/
+/*Adding custom sliders*/
 .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -182,6 +294,7 @@ button a:visited
     margin-top: 20px;
 }
 
+/*Spacing out the shape*/
 .shapeHolder
 {
     margin-left: 20px;
@@ -193,9 +306,9 @@ button a:visited
     opacity: 1; /* Fully shown on mouse-over */
 }
 
+/*More slider formatting*/
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 25px;
     height: 25px;
     border-radius: 50%; 
@@ -203,15 +316,22 @@ button a:visited
     cursor: pointer;
 }
 
+/*Flipping the silder to be vertical,
+Pushing it towards the right for aesthetics*/
 #vertSlideContainer
 {
     transform: rotate(90deg) translateY(-150%);
 
 }
+/*Spacing the slider out from the other one*/
 #horiSlideContainer
 {
     margin-top: 30px;
 }
+
+/*Pushing the shape and launcher towards the bottom right of the screen,
+Setting its position so the shape can be launched withing the confines of the screen,
+Displaying in row flex*/
 
 .bigHold
 {
@@ -222,44 +342,180 @@ button a:visited
     flex-direction: row;
 }
 
+/*Displaying with row flex,
+Spacing it from the shape on the left so that a fully dragged back shape does not interfere with the launcher*/
 .launcher
 {
     display: flex;
     flex-direction: column;
     margin-left: 210px;
 }
+
+/*Spacing it from the top so the shape does not touch it when launched,
+Shortening so that the shape does not touch it when it is being readied*/
+.phase2Expo
+{
+    margin-top: 20px;
+    width: 45%;
+}
 /***/
 /*PHASE 3*/
 /***/
+
+/*Adding in the SVG color*/
 .stroke
 {
     border: 1px solid black;
-    stroke-width: 1;
+    stroke-width: 1px;
     stroke: #FFF; 
 }
 
+/*Making the figure visible, removing black fill*/
 .figBox
 {
     width: 100%;
     fill: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
 
+/*Making the shape take up part of the screen*/
 .shapeManager
 {
-    min-width: 70vh;
-    position: relative;
-    top: 0px;
-    left: 0px;
+    width: 30%;
 }
 
+/*Making the SVG figure bigger*/
+.figDiv
+{
+    width: 40%;
+
+}
+
+/*Spacing the button out on the sides, doesn't touch anything,
+Pushing it to the middle of the main area so the shape doesn't touch it when moving*/
+.butBox
+{
+    height: 50%;
+    margin: auto 0;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+/*Centering the text, and spacing it from the sides*/
+.phase3Expo
+{
+    width: 75%;
+    margin: 0 auto;
+}
 /***/
 /*NOTES*/
 /***/
+/*Spacing the text from the sides*/
 .sourceText
 {
     width: 80%;
     margin: 0 auto;
+}
+
+@media(max-width: 768px)
+{
+    /*Increasing the width of the main page*/
+    .homePage
+    {
+        width: 100%;
+    }
+
+    /*Displaying elements in a column instead of row*/
+    .blockHold
+    {
+        flex-direction: column;
+    }
+
+    /*Removing spacing from the right side*/
+    .block
+    {
+        margin-right: 0px;
+    }
+
+    /*Making the sidebar larger*/
+    .sideText
+    {
+        min-width: 95vw;
+    }
+
+    /*The vertical bar doesn't look good on mobile, removing it*/
+    .vertBar
+    {
+        display: none;
+    }
+    
+    /*Making most content display in column*/
+    .topHold
+    {
+        flex-direction: column;
+    }
+
+    /*Spacing the buttons from the left side of the screen*/
+    .buttonSelectors
+    {
+        margin-left: 30px;
+        margin-right: 0px;
+    }
+
+    /*Spacing the button so it does not go off screen during animation*/
+    .controlButtons
+    {
+        margin-right: 0px;
+        margin-left: 220px;
+    }
+
+    /*Bringing the shape to the right side of the screen so it looks better when animating*/
+    .p1Shape
+    {
+        margin-right: 0px;
+        margin-left: 220px;
+    }
+
+    /*Removing the absolute positioning of the box,
+    Spacing it from the sidebar*/
+    .bigHold
+    {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        margin-top: 50px;
+    }
+
+    /*Pushing the launcher further to the right*/
+    .launcher
+    {
+        margin-left: 70px;
+    }
+
+    /*Making the text display in the center and spaced from the sides since there is less of a worry about the shape obstructing*/
+    .phase2Expo
+    {
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    /*Putting the button in the middle horizontally rather than vertically*/
+    .butBox
+    {
+        margin: 0 auto;
+        margin-top: 50px;
+        height: 0%;
+    }
+
+    /*Making the figure larger*/
+    .figDiv
+    {
+        width: 95vw;
+        margin: 0;
+    }
+
+    /*Displaying the text ina column instead of row*/
+    .notesPage
+    {
+        flex-direction: column;
+    }
 }
